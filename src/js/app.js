@@ -11,7 +11,6 @@ app.config(['$routeProvider', function($routeProvider) {
         controller : 'gameCtrl'
     })
     .when('/credits', {
-        templateUrl: 'src/partials/credits.html',
         controller : 'creditCtrl'
     })
     .when('/settings', {
@@ -27,6 +26,3 @@ app.controller('gameCtrl', ['$scope', function($scope) {
 }]);
 app.controller('settingsCtrl', ['$scope', function($scope) {
 }]);
-app.controller('creditCtrl', ['$scope', function($scope) {
-}]);
-
