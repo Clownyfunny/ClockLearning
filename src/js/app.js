@@ -1,4 +1,4 @@
-var app = angular.module('TimerForChild', ['ngRoute']);
+var app = angular.module('ClockLearning', ['ngRoute']);
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider

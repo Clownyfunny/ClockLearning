@@ -77,13 +77,13 @@ module.exports = function(grunt) {
       js: ["build/js/*.js", "!build/js/*.min.js"],
       css: ["build/css/*.css", "!build/css/*.min.css"]
     },
-
-    //compile css et js en temps réel
-    watch: {
-        files: ['src/**/*'],
-        tasks: ['uglify','cssmin','copy','jshint','clean'],
-        options: {
-          livereload: 9000
+      
+    connect: {
+        server: {
+          options: {
+            port: 9001,
+            base: '.'
+          }
         }
     }
   });
@@ -100,7 +100,7 @@ module.exports = function(grunt) {
   /****** MODIF HTML & DIRECTORY *****/
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
   grunt.registerTask('default', ['uglify','cssmin','copy','jshint','clean']);
 
