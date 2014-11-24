@@ -1,0 +1,2 @@
+Launch bower install
+

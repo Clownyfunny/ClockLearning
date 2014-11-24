@@ -1,0 +1,21 @@
+{
+  "name": "ClockLearning",
+  "version": "0.0.0",
+  "authors": [
+    "Clownyfunny"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "~1.3.3",
+    "angular": "~1.3.3",
+    "grunt": "~0.4.5",
+    "kineticjs": "~5.1.0"
+  }
+}
