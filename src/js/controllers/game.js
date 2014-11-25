@@ -1,31 +1,54 @@
-var app = angular.module("game");
+var app = angular.module("game", ["generateTime"]);
 
-app.controller('gameCtrl', ['$scope', function($scope) {
-    var canvas = document.getElementById('game');
-    var context = canvas.getContext('2d');
-    var sources = {
-        horloge1 : "src/images/clock1.png",
-        horloge2 : "src/images/clock2.png",
-        horloge3 : "src/images/clock3.png",
-        minutes : "src/images/firstHand.png",
-        hours : "src/images/secondHand.png",
-        hight_button : "src/images/button_up.png",
-        down_button : "src/images/button_down.png",
-        number_content : "src/images/span.png",
-        verify : "src/images/verify.png"
-
+app.controller('gameCtrl', function($rootScope, $scope, $timeout, $location, generateTime) {
+    console.log();
+    var spanImage = new Image();
+    var upValueImage = new Image();
+    var downValueImage = new Image();
+    
+    var canvas = new Kinetic.Stage({
+       container: "game",
+        width: 495,
+        height: 200 
+    });
+    var spanOneLayer= new Kinetic.Layer({ x: 60, y: 0});
+    var spanTwoLayer= new Kinetic.Layer({ x: 250, y: 0});
+    var upValueOneLayer= new Kinetic.Layer({ x: 0, y: 0 });
+    var upValueTwoLayer= new Kinetic.Layer({ x: 435, y: 0 });
+    var downValueOneLayer= new Kinetic.Layer({ x: 0, y: 80 });
+    var downValueTwoLayer= new Kinetic.Layer({ x: 435, y: 80 });
+    
+    spanImage.onload = function(){
+        var span = new Kinetic.Image({
+            image: spanImage
+        });
+        spanOneLayer.add(span);
+        spanOneLayer.draw();
+        spanTwoLayer.add(span);
+        spanTwoLayer.draw();
     };
+    upValueImage.onload = function(){
+        var up = new Kinetic.Image({
+            image: upValueImage
+        });
+        upValueOneLayer.add(up);
+        upValueOneLayer.draw();
+        upValueTwoLayer.add(up);
+        upValueTwoLayer.draw();
+    };
+    downValueImage.onload = function(){
+        var down = new Kinetic.Image({
+            image: downValueImage
+        });
+        downValueOneLayer.add(down);
+        downValueOneLayer.draw();
+        downValueTwoLayer.add(down);
+        downValueTwoLayer.draw();
+    };
+    upValueImage.src = "src/images/button_up.png";
+    downValueImage.src = "src/images/button_down.png";
+    spanImage.src = "src/images/span.png";
+    
+    canvas.add(upValueOneLayer, upValueTwoLayer, downValueOneLayer, downValueTwoLayer, spanOneLayer, spanTwoLayer);
 
-    loadImages(sources, function(images){
-        context.drawImage(images.horloge1, 100, 30);
-        context.drawImage(images.minutes, 50, 20);
-        context.drawImage(images.hours, 30, 10);
-        context.drawImage(images.hight_button, 30, 10);
-        context.drawImage(images.hight_button, 30, 10);
-        context.drawImage(images.down_button, 30, 10);
-        context.drawImage(images.down_button, 30, 10);
-        context.drawImage(images.number_content, 30, 10);
-        context.drawImage(images.number_content, 30, 10);
-        context.drawImage(images.verify, 30, 10);
-    })
-}]);
+});

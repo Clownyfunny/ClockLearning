@@ -24,7 +24,6 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-      <canvas id="back"></canvas>
     <div class="container" ng-view></div>
 
     <script src="bower_components/angular/angular.js"></script>
@@ -33,12 +32,13 @@
     <!-- build:js scripts/scripts.js -->
       <script src="src/js/controllers.js"></script>
       <script src="src/js/controllers/start.js"></script>
+      <script src="src/js/controllers/clock.js"></script>
+      <script src="src/js/services/generateTime.js"></script>
       <script src="src/js/controllers/game.js"></script>
       <script src="src/js/controllers/other.js"></script>
       <script src="src/js/controllers/settings.js"></script>
       <script src="src/js/controllers/credits.js"></script>
       <script src="src/js/app.js"></script>
-    <!--<script src="src/js/clock.js"></script>-->
     <!-- endbuild -->
   </body>
 </html>
