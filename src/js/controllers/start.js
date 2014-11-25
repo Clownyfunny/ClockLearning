@@ -11,9 +11,12 @@ app.controller('startCtrl', ['$scope', function($scope) {
     };
 
     loadImages(sources, function(images){
-        context.drawImage(images.settings, 100, 30, 300, 300);
-        context.drawImage(images.start, 50, 20);
-        context.drawImage(images.credit, 50, 20);
-        context.drawImage(images.title, 30, 10);
+        context.drawImage(images.settings, 350,260);
+        context.drawImage(images.start, 350, 140);
+        context.drawImage(images.credit, 350, 380);
+        context.drawImage(images.title, 350, 0);
     });
+
+    
+    
 }]);
