@@ -1,4 +1,4 @@
-var app = angular.module('ClockLearning', ['ngRoute', 'start', 'game', "credits", "settings"]);
+var app = angular.module('ClockLearning', ['ngRoute', 'ngDialog', 'start', 'game', "credits", "settings"]);
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
